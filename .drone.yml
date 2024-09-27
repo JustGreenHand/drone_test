@@ -2,7 +2,11 @@ kind: pipeline
 type: docker
 name: default
 
-steps:
+volumes:
+  - name: wwwroot
+    host:
+      path: /usr/share/nginx/html
+
 steps:
   - name: install
     image: node:16 # 选择合适的 Node.js 版本
@@ -17,7 +21,7 @@ steps:
     commands:
       - npm run build # 运行 umi 的构建脚本
 
-  - name: move-build-artifacts
+  - name: deploy
     image: alpine
     volumes:
       - name: wwwroot
