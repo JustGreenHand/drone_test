@@ -6,6 +6,7 @@ steps:
   - name: install
     image: node:18 # 选择合适的 Node.js 版本
     commands:
+      - npm config set registry https://registry.npmmirror.com
       - npm install
 
   - name: build
