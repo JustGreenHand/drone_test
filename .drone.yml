@@ -22,6 +22,3 @@ steps:
     commands:
       - echo "Copying build files to Nginx directory..."
       - cp -r ./dist/* /usr/share/nginx/html/ # 复制产物到 Nginx 的静态文件目录
-    when:
-      event:
-        - push
