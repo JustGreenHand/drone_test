@@ -4,14 +4,10 @@ name: default
 
 steps:
 steps:
-  - name: login
-    image: docker
-    commands:
-      - echo "$DOCKER_PASSWORD" | docker login --username="$DOCKER_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
-  
   - name: install
     image: registry.cn-hangzhou.aliyuncs.com/lyy1993/node:18 # 选择合适的 Node.js 版本
     commands:
+      - echo "$DOCKER_PASSWORD" | docker login --username="$DOCKER_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
       - npm config set registry https://registry.npmmirror.com
       - npm config set fetch-retries 5 # 设置重试次数
       - npm config set fetch-timeout 60000 # 设置超时时间为 60 秒
