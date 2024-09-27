@@ -18,7 +18,12 @@ steps:
       - npm run build # 运行 umi 的构建脚本
 
   - name: deploy
-    image: node:16
-    commands:
-      - echo "Copying build files to Nginx directory..."
-      - cp -r ./dist/* /usr/share/nginx/html # 复制产物到 Nginx 的静态文件目录
+    image: appleboy/drone-ssh
+    settings:
+      host: 121.40.217.207
+      username: root
+      password:
+        from_secret: ECS_PSD
+      script:
+        - echo "Copying build files to Nginx directory..."
+        - cp -r ./dist/* /usr/share/nginx/html
