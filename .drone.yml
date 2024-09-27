@@ -7,6 +7,9 @@ volumes:
     host:
       path: /usr/share/nginx/html
 
+workspace:
+  path: /drone/src
+
 steps:
   - name: install
     image: node:16 # 选择合适的 Node.js 版本
