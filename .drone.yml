@@ -20,17 +20,8 @@ steps:
   - name: deploy
     image: node:16
     commands:
-      - echo "Copying build files from dist to nginx html directory..."
-      - cp -r ./dist/* /usr/share/nginx/html/ # 将 dist 目录下的所有文件复制到 nginx 的静态文件目录
-    volumes:
-      - name: static-files
-        path: /usr/share/nginx/html
+      - echo "Copying build files to Nginx directory..."
+      - cp -r ./dist/* /usr/share/nginx/html/ # 复制产物到 Nginx 的静态文件目录
     when:
       event:
         - push
-
-volumes:
-  - name: static-files
-    host:
-      path: /usr/share/nginx/html
-
