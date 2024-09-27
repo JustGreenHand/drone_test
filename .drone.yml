@@ -4,7 +4,6 @@ name: default
 
 steps:
   - name: install
-    image: node:18 # 选择合适的 Node.js 版本
     commands:
       - npm config set registry https://registry.npmmirror.com
       - npm config set fetch-retries 5 # 设置重试次数
@@ -12,7 +11,6 @@ steps:
       - npm install
 
   - name: build
-    image: node:18
     commands:
       - npm run build # 运行 umi 的构建脚本
 
