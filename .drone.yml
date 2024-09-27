@@ -3,6 +3,12 @@ type: docker
 name: default
 
 steps:
+steps:
+  - name: login
+    image: docker
+    commands:
+      - echo "$DOCKER_PASSWORD" | docker login --username="$DOCKER_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
+  
   - name: install
     image: registry.cn-hangzhou.aliyuncs.com/lyy1993/node:18 # 选择合适的 Node.js 版本
     commands:
