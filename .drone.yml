@@ -21,4 +21,4 @@ steps:
     image: node:16
     commands:
       - echo "Copying build files to Nginx directory..."
-      - cp -r ./dist/* /usr/share/nginx/html/ # 复制产物到 Nginx 的静态文件目录
+      - cp -r ./dist/* /usr/share/nginx/html # 复制产物到 Nginx 的静态文件目录
