@@ -1,14 +1,12 @@
 kind: pipeline
 type: docker
 name: default
+trusted: true
 
 volumes:
   - name: wwwroot
     host:
       path: /usr/share/nginx/html
-
-workspace:
-  path: /drone/src
 
 steps:
   - name: install
