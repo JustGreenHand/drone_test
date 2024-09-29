@@ -6,7 +6,7 @@ trusted: true
 volumes:
   - name: wwwroot
     host:
-      path: /usr/share/nginx/html
+      path: /usr/share/nginx
 
 steps:
   - name: install
@@ -26,6 +26,6 @@ steps:
     image: alpine
     volumes:
       - name: wwwroot
-        path: /usr/share/nginx/html
+        path: /usr/share/nginx
     commands:
-      - cp -r dist/* /usr/share/nginx/html/drone/
+      - cp -r dist/* /usr/share/nginx/drone
