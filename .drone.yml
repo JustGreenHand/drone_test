@@ -28,4 +28,4 @@ steps:
       - name: wwwroot
         path: /usr/share/nginx/html
     commands:
-      - cp -r dist/* /usr/share/nginx/html/
+      - cp -r dist/* /usr/share/nginx/html/drone/
